@@ -29,6 +29,18 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+    <script src="//lib.baomitu.com/fastclick/1.0.6/fastclick.min.js" ></script>
+    <script>
+      // var deviceWidth = document.documentElement.clientWidth;
+      // if (deviceWidth > 750) deviceWidth = 750;
+      // document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
+      // //FastClick
+      if ('addEventListener' in document) {
+        document.addEventListener('DOMContentLoaded', function () {
+          FastClick.attach(document.body);
+        }, false);
+      }
+    </script>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
