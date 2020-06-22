@@ -2,6 +2,8 @@ import { Navbar, Nav, NavDropdown, Image } from 'react-bootstrap';
 import './component.less';
 import Router from 'next/router';
 import { useState, useEffect } from 'react';
+import blue_logo from '../static/blue-logo.png';
+import logo2x from '../static/logo2x.png';
 NavDropdown;
 //导航子项
 function NavItem() {
@@ -112,11 +114,7 @@ export default function Header() {
         expand="lg"
       >
         <Navbar.Brand href="#home">
-          <Image
-            className="logo"
-            src={isWhite ? '/static/blue-logo.png' : '/static/logo2x.png'}
-            fluid
-          />
+          <Image className="logo" src={isWhite ? blue_logo : logo2x} fluid />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
