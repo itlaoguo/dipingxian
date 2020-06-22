@@ -1,0 +1,1 @@
+{"ast":null,"code":"import React from \"react\";\nvar __jsx = React.createElement;\nimport './middle.less';\nexport default function Middle() {\n  return __jsx(\"div\", {\n    className: \"middle\"\n  }, __jsx(\"p\", null, \"\\u4E2D\\u5EFA\"));\n}","map":null,"metadata":{},"sourceType":"module"}
