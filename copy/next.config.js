@@ -10,7 +10,7 @@ if (typeof require !== 'undefined') {
 
 module.exports = withLess(
   withCss({
-    distDir: 'build',
+    // distDir: 'build',
     generateEtags: false,
     exportPathMap: async function (defaultPathMap) {
       console.log(defaultPathMap);

@@ -51,6 +51,7 @@ function NavItem() {
           <Nav.Link
             key={index}
             href={item.url}
+            prefetch="true"
             className={
               item['mounseIn'] && item['isHome']
                 ? 'moutrue blue-link homeColor'

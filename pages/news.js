@@ -1,4 +1,5 @@
 import './news.less';
+import Router from 'next/router';
 import { useState } from 'react';
 let initList = [
   {
@@ -50,6 +51,11 @@ export default function News() {
   const handleClick = (item) => {
     console.log(item, 'tie');
   };
+  const goDetail = (item) => {
+    console.log(item, 'itme');
+    const { id } = item;
+    Router.push(`/news/[${id}]`);
+  };
   return (
     <div className="main">
       <div className="main-bg">
@@ -75,7 +81,11 @@ export default function News() {
             <div className="relevant-left">
               {newsArr.map((item) => {
                 return (
-                  <div className="news-content" key={item.id}>
+                  <div
+                    className="news-content"
+                    onClick={() => goDetail(item)}
+                    key={item.id}
+                  >
                     <img className="news-left" src={item.img} />
                     <div className="news-right">
                       <p>{item.title}</p>
