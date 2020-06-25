@@ -21,6 +21,7 @@ module.exports = withLess(
           '/': { page: '/' },
           '/news': { page: '/news' },
           '/middle': { page: '/middle' },
+          '/goods': { page: '/news/new-details' },
         };
       },
       devIndicators: {
@@ -36,11 +37,12 @@ module.exports = withLess(
       compress: true,
       // 在pages目录下哪种文件后缀会被认为是页面
       pageExtensions: ['mdx', 'jsx', 'js'],
-      // generateBuildId: async () => {
-      //自定义发布ID
-      //   // For example get the latest git commit hash here
-      //   return 'v1';
-      // },
+      generateBuildId: async () => {
+        // 自定义发布ID
+        // For example get the latest git commit hash here
+        return 'v1';
+      },
+      // assetPrefix: '/{reponame}',
     })
   )
 );

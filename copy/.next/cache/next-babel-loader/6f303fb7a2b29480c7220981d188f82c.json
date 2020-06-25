@@ -1,1 +1,0 @@
-{"ast":null,"code":"export default function Footer() {}","map":{"version":3,"sources":["/Users/wujiaqi/Desktop/Web-Demo-Code/next-app/components/footer.js"],"names":["Footer"],"mappings":"AAAA,eAAe,SAASA,MAAT,GAAkB,CAAE","sourcesContent":["export default function Footer() {}\n"]},"metadata":{},"sourceType":"module"}

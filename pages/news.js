@@ -1,6 +1,8 @@
 import './news.less';
 import Router from 'next/router';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
+Router;
 let initList = [
   {
     id: 0,
@@ -47,14 +49,27 @@ export default function News() {
     },
   ];
   const [newsArr, setNewsArr] = useState(initList);
+  const [cureent, setCureent] = useState(0);
+  useEffect(() => {
+    //存储新闻分类
+    localStorage.setItem('newsList', JSON.stringify(tabsList));
+  }, [tabsList]);
   setNewsArr;
   const handleClick = (item) => {
-    console.log(item, 'tie');
-  };
-  const goDetail = (item) => {
-    console.log(item, 'itme');
     const { id } = item;
-    Router.push(`/news/[${id}]`);
+    setCureent(id);
+    localStorage.setItem('cureentid', id);
+  };
+  useEffect(() => {
+    const cureentid = Number(localStorage.getItem('cureentid') || 0);
+    setCureent(cureentid);
+    console.log(cureent);
+  }, [cureent]);
+  const goDetail = (item) => {
+    console.log(item, 'itme========');
+    const { title } = item;
+    localStorage.setItem('cureentTitle', title);
+    // Router.push(`/news/[${id}]`);
   };
   return (
     <div className="main">
@@ -68,7 +83,9 @@ export default function News() {
             {tabsList.map((item) => {
               return (
                 <span
-                  className="news-tabs-a"
+                  className={`news-tabs-a ${
+                    cureent === item.id ? 'news-tabs-active' : ''
+                  }`}
                   onClick={() => handleClick(item)}
                   key={item.id}
                 >
@@ -81,18 +98,23 @@ export default function News() {
             <div className="relevant-left">
               {newsArr.map((item) => {
                 return (
-                  <div
-                    className="news-content"
-                    onClick={() => goDetail(item)}
+                  <Link
                     key={item.id}
+                    href={`/news/[${item.id}]`}
+                    as={`/news/${item.id}`}
                   >
-                    <img className="news-left" src={item.img} />
-                    <div className="news-right">
-                      <p>{item.title}</p>
-                      <span>{item.date}</span>
-                      <em>{item.content}</em>
+                    <div
+                      className="news-content"
+                      onClick={() => goDetail(item)}
+                    >
+                      <img className="news-left" src={item.img} />
+                      <div className="news-right">
+                        <p>{item.title}</p>
+                        <span>{item.date}</span>
+                        <em>{item.content}</em>
+                      </div>
                     </div>
-                  </div>
+                  </Link>
                 );
               })}
             </div>

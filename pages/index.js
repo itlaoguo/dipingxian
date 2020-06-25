@@ -3,7 +3,7 @@ import Layout from '../components/Layout';
 import Swiper from '../components/Swiper';
 import './index.less';
 import Router from 'next/router';
-
+Router;
 // import Header from '../components/header';
 import { useState, useEffect } from 'react';
 useState;

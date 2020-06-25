@@ -40,7 +40,7 @@ export default function Layout({ children }) {
       <style jsx global>{`
         html,
         body {
-          background: black;
+          background: rgba(249, 249, 249, 1);
           padding: 0;
           margin: 0;
           font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,

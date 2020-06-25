@@ -13,8 +13,13 @@ app.prepare().then(() => {
     // This tells it to parse the query portion of the URL.
     const parsedUrl = parse(req.url, true);
     const { pathname, query } = parsedUrl;
-    // console.log(pathname, 'pathname');
-    // console.log(query, 'query');
+    // Add assetPrefix support based on the hostname
+    //动态增加前缀
+    // if (req.headers.host === 'my-app.com') {
+    //   app.setAssetPrefix('http://jartto.cdn.com/myapp')
+    // } else {
+    //   app.setAssetPrefix('')
+    // }
     if (pathname === '/a') {
       app.render(req, res, '/a', query);
     } else if (pathname === '/b') {

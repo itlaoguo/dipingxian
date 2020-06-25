@@ -7,6 +7,7 @@ import Layout from '../components/Layout';
 import Footer from '../components/footer';
 // eslint-disable-next-line react/prop-types
 export default function MyApp({ Component, pageProps }) {
+  console.log('进入主进程；；；；');
   // console.log(Component, 'Component');
   // console.log(pageProps, 'pagePropss');
 

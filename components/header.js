@@ -5,9 +5,9 @@ import { useState, useEffect } from 'react';
 import blue_logo from '../static/blue-logo.png';
 import logo2x from '../static/logo2x.png';
 NavDropdown;
+
 //导航子项
 function NavItem() {
-  // console.log(Router.router.pathname);
   let list = [
     { name: '首页', url: '/', isHome: true },
     { name: '核心技术', url: '/middle' },
@@ -20,16 +20,15 @@ function NavItem() {
 
   //判断当前路径，并加上进入状态
   useEffect(() => {
+    const isRouter = Router.router.pathname.split('/')[1];
     list.forEach((item) => {
-      if (item.url === Router.router.pathname) {
+      if (item.url === '/' + isRouter) {
         item['mounseIn'] = true;
       }
     });
   });
   const [NavList, setNavList] = useState(list);
   const mounseEnter = (e, item, index) => {
-    console.log('进入了状态‘；');
-
     item['mounseIn'] = true;
     let arr = [...NavList];
     arr[index] = item;
@@ -37,7 +36,8 @@ function NavItem() {
     setNavList(arr);
   };
   const onMouseLeave = (e, item, index) => {
-    if (item.url !== Router.router.pathname) {
+    const isRouter = Router.router.pathname.split('/')[1];
+    if (item.url !== '/' + isRouter) {
       item['mounseIn'] = false;
       let arr = [...NavList];
       arr[index] = item;
